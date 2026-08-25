@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convite de casamento Sarah & Jeremias — 05 de outubro de 2026 às 17h.">
+  <title>Sarah & Jeremias | Nosso Casamento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar" id="inicio">
+    <a class="brand" href="#inicio">S <span>|</span> J</a>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav">
+      <a class="active" href="#inicio">INÍCIO</a>
+      <a href="#historia">NOSSA HISTÓRIA</a>
+      <a href="#informacoes">INFORMAÇÕES</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#presentes">PRESENTES</a>
+      <a href="#mural">MURAL</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="leaf leaf-left">❧</div>
+      <div class="leaf leaf-right">❧</div>
+      <div class="hero-content">
+        <div class="monogram">S J</div>
+        <div class="ornament">⌁</div>
+        <h1>SARAH <span>&amp;</span> JEREMIAS</h1>
+        <div class="date">05 · 10 · 2026</div>
+        <div class="time">ÀS 17:00</div>
+        <p class="script">O amor nos trouxe até aqui.<br> E agora queremos celebrar esse momento com vocês.</p>
+        <a class="gold-button" href="#informacoes">ABRIR CONVITE <span>♡</span></a>
+        <a class="scroll-down" href="#contagem" aria-label="Rolar para baixo">⌄</a>
+      </div>
+    </section>
+
+    <section class="countdown-section" id="contagem">
+      <div class="section-heading">
+        <span class="eyebrow">UM DIA PARA GUARDAR NO CORAÇÃO</span>
+        <h2>CONTAGEM REGRESSIVA</h2>
+        <div class="tiny-ornament">— ♡ —</div>
+      </div>
+      <div class="countdown">
+        <div><strong id="days">000</strong><span>DIAS</span></div>
+        <i></i>
+        <div><strong id="hours">00</strong><span>HORAS</span></div>
+        <i></i>
+        <div><strong id="minutes">00</strong><span>MINUTOS</span></div>
+        <i></i>
+        <div><strong id="seconds">00</strong><span>SEGUNDOS</span></div>
+      </div>
+    </section>
+
+    <section class="celebration" id="informacoes">
+      <div class="intro-copy">
+        <span class="eyebrow">UM MOMENTO ESPECIAL</span>
+        <h2>NOSSA CELEBRAÇÃO</h2>
+        <div class="olive">❧</div>
+        <p>Será um dia muito especial e adoraríamos compartilhar cada segundo com vocês.</p>
+        <p>Contamos com a presença de todos para tornar esse momento ainda mais inesquecível!</p>
+        <div class="heart">♡</div>
+      </div>
+
+      <div class="timeline">
+        <article class="info-item">
+          <div class="icon">◯</div>
+          <div>
+            <h3>CERIMÔNIA</h3>
+            <p>05 de outubro de 2026<br>Às 17:00</p>
+          </div>
+        </article>
+        <article class="info-item">
+          <div class="icon">⌖</div>
+          <div>
+            <h3>LOCAL</h3>
+            <p>Espaço Container<br>Rod. Marechal Rondon, km 247<br>Botucatu - SP, 18608-000</p>
+            <a class="small-button" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Espa%C3%A7o%20Container%20Rod.%20Marechal%20Rondon%20km%20247%20Botucatu%20SP">COMO CHEGAR</a>
+          </div>
+        </article>
+        <article class="info-item">
+          <div class="icon">♧</div>
+          <div>
+            <h3>RECEPÇÃO</h3>
+            <p>Após a cerimônia, vamos celebrar juntos no Espaço Container.</p>
+            <p>A recepção será feita individualmente, com cada convidado realizando o pagamento de sua própria comanda diretamente no local.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+      <div class="section-heading">
+        <h2>CONFIRME SUA PRESENÇA</h2>
+        <div class="tiny-ornament">— ♡ —</div>
+        <p>Sua presença é muito importante para nós!</p>
+      </div>
+
+      <form id="rsvpForm" class="form-grid">
+        <input id="nome" type="text" placeholder="Seu nome completo" required>
+        <select id="presenca" required>
+          <option value="">Você irá?</option>
+          <option value="Sim, estarei presente">Sim, estarei presente</option>
+          <option value="Não poderei comparecer">Não poderei comparecer</option>
+        </select>
+        <input id="acompanhantes" type="number" min="0" max="10" value="0" placeholder="Quantidade de acompanhantes">
+        <input id="restricoes" type="text" placeholder="Restrições alimentares? (opcional)">
+        <button class="dark-button" type="submit">ENVIAR CONFIRMAÇÃO ♡</button>
+      </form>
+      <p class="deadline">Por favor, confirme até 15/09/2026.</p>
+      <div id="rsvpMessage" class="form-message" role="status"></div>
+    </section>
+
+    <section class="gifts" id="presentes">
+      <div class="gift-icon">♧</div>
+      <div>
+        <span class="eyebrow light">PRESENTES</span>
+        <h2>PRESENTEIE OS NOIVOS</h2>
+        <p>Se desejar nos presentear, ficaremos muito felizes!</p>
+        <p>Nossa chave PIX:</p>
+        <button class="pix-key" id="pixButton" type="button">(14) 99614-3026</button>
+        <small>Sarah Vicente</small>
+      </div>
+      <div class="gift-divider"></div>
+      <div>
+        <p>Copie a chave PIX<br>com um clique:</p>
+        <button class="outline-light" id="copyPix" type="button">COPIAR ♧</button>
+        <p class="script light-script">Obrigada! ♡</p>
+      </div>
+    </section>
+
+    <section class="story" id="historia">
+      <div class="story-text">
+        <span class="eyebrow">CAPÍTULOS DA NOSSA VIDA</span>
+        <h2>NOSSA HISTÓRIA</h2>
+        <p>Cada capítulo da nossa história nos trouxe até aqui.</p>
+        <p>Veja alguns momentos especiais dessa jornada.</p>
+        <button class="outline-button" id="storyButton" type="button">VER NOSSA HISTÓRIA</button>
+      </div>
+      <div class="photos">
+        <div class="photo-card"><span>♡</span></div>
+        <div class="photo-card"><span>♡</span></div>
+        <div class="photo-card"><span>♡</span></div>
+      </div>
+    </section>
+
+    <section class="mural" id="mural">
+      <div class="section-heading">
+        <h2>DEIXE UMA MENSAGEM</h2>
+        <div class="tiny-ornament">— ♡ —</div>
+        <p>Deixe aqui seu carinho para nós!</p>
+      </div>
+      <button class="outline-button" id="openMessage" type="button">ESCREVER MENSAGEM ✎</button>
+      <form id="messageForm" class="message-form hidden">
+        <input id="messageName" type="text" placeholder="Seu nome" required>
+        <textarea id="messageText" rows="4" placeholder="Escreva uma mensagem para os noivos..." required></textarea>
+        <button class="dark-button" type="submit">PUBLICAR MENSAGEM ♡</button>
+      </form>
+      <div id="messages" class="messages"></div>
+    </section>
+  </main>
+
+  <footer class="music-bar">
+    <button id="musicButton" class="play" type="button" aria-label="Tocar música">▶</button>
+    <div class="music-info">
+      <strong>Música do nosso amor</strong>
+      <span>Adicione seu arquivo como <b>musica.mp3</b></span>
+    </div>
+    <div class="volume">♪ ━━━━━━━━━</div>
+    <a href="#inicio" class="back-top">⌃</a>
+    <audio id="music" src="musica.mp3" preload="none"></audio>
+  </footer>
+
+  <div class="modal hidden" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+    <div class="modal-card">
+      <button class="close-modal" id="closeStory" type="button">×</button>
+      <h2 id="storyTitle">Nossa história</h2>
+      <p>Este espaço pode contar a história de vocês: como se conheceram, quando começaram a namorar, momentos marcantes e o pedido de casamento.</p>
+      <p>Você pode substituir este texto diretamente no arquivo <b>index.html</b>.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
