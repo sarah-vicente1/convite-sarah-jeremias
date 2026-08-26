@@ -23,9 +23,17 @@ button,input,select,textarea{font:inherit}
 .nav a.active:after{content:"";position:absolute;height:1px;background:var(--gold);left:0;right:0;bottom:0}
 .nav a.active:before{content:"";position:absolute;width:8px;height:3px;background:var(--gold-soft);left:50%;bottom:-1px;transform:translateX(-50%)}
 .brand,.menu-toggle{display:none}
-.hero{min-height:690px;background:
- radial-gradient(circle at center,rgba(75,87,51,.5),transparent 55%),
- linear-gradient(115deg,#202817,#313c22 50%,#1d2615);
+.hero{
+min-height:690px;
+background:
+radial-gradient(circle at center,rgba(143,165,138,.35),transparent 55%),
+linear-gradient(115deg,#7f9679 0%,#8fa58a 50%,#748b6f 100%);
+color:#fff;
+position:relative;
+display:grid;
+place-items:center;
+overflow:hidden;
+}
  color:#f6f1e7;position:relative;display:grid;place-items:center;overflow:hidden}
 .hero:before,.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:
  radial-gradient(ellipse at 8% 20%,transparent 0 40%,rgba(193,163,107,.08) 41% 42%,transparent 43%),
