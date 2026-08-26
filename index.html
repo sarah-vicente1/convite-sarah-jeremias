@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah & Jeremias | 05.10.2026</title>
+  <meta name="description" content="Convite de casamento de Sarah e Jeremias">
+  <style>
+    :root{
+      --bg:#f6f1e7;
+      --olive:#6f7757;
+      --olive-dark:#515942;
+      --gold:#b89454;
+      --gold-line:rgba(184,148,84,.35);
+      --white:#ffffff;
+      --shadow:0 18px 45px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Georgia, serif;
+      background:var(--bg);
+      color:#39392f;
+    }
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:10px 12px;
+      background:rgba(246,241,231,.95);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--gold-line);
+    }
+    .topbar button, .topbar a, .cta{
+      appearance:none;
+      border:1px solid var(--gold-line);
+      background:var(--olive);
+      color:#fff;
+      text-decoration:none;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      cursor:pointer;
+      box-shadow:var(--shadow);
+    }
+    .topbar .outline{
+      background:#fff;
+      color:var(--olive-dark);
+    }
+    .page{
+      max-width:980px;
+      margin:0 auto;
+      padding:20px 12px 100px;
+    }
+    .invite-wrap{
+      position:relative;
+      width:100%;
+      max-width:809px;
+      margin:0 auto;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+    .invite-wrap img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .hotspot{
+      position:absolute;
+      display:block;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+    }
+    .hotspot:focus-visible{outline:2px solid var(--gold); outline-offset:2px; border-radius:10px;}
+
+    /* Coordinates based on 809 x 1942 image */
+    .open-invite{left:43.5%; top:21.1%; width:18.5%; height:2.8%;}
+    .map-btn{left:59%; top:55%; width:19%; height:2.8%;}
+    .rsvp-btn{left:36.5%; top:66.6%; width:30%; height:2.9%;}
+    .story-btn{left:13.2%; top:90.9%; width:20%; height:2.2%;}
+    .message-btn{left:32.5%; top:96.9%; width:34.5%; height:2.3%;}
+
+    .caption{
+      max-width:809px;
+      margin:18px auto 0;
+      text-align:center;
+      color:#6c6a5a;
+      font-size:15px;
+    }
+    .actions{
+      max-width:809px;
+      margin:18px auto 0;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+    .actions button,.actions a{
+      width:100%;
+      text-align:center;
+      appearance:none;
+      border:1px solid var(--gold-line);
+      background:#fff;
+      color:var(--olive-dark);
+      text-decoration:none;
+      border-radius:14px;
+      padding:14px 10px;
+      font-size:15px;
+      cursor:pointer;
+    }
+    .actions .primary{background:var(--olive); color:#fff;}
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(38,39,33,.58);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:100;
+    }
+    .modal.show{display:flex;}
+    .card{
+      width:min(760px,100%);
+      max-height:90vh;
+      overflow:auto;
+      background:#fffdf8;
+      border:1px solid var(--gold-line);
+      border-radius:20px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{margin:0 0 10px; color:var(--olive-dark); font-size:34px; text-align:center;}
+    .card p{font-size:19px; line-height:1.6; margin:10px 0;}
+    .close{
+      float:right;
+      appearance:none;
+      border:none;
+      background:transparent;
+      color:#666;
+      font-size:28px;
+      cursor:pointer;
+      margin-top:-6px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:18px;
+    }
+    label{display:block; font-size:15px; color:#625f53; margin-bottom:6px;}
+    input, textarea, select{
+      width:100%;
+      border:1px solid #d8cfbf;
+      border-radius:12px;
+      padding:12px 14px;
+      font-size:16px;
+      background:#fff;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    .full{grid-column:1/-1;}
+    .form-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+    .small-note{font-size:14px; color:#77705f; margin-top:8px;}
+    .pill{
+      display:inline-block;
+      border:1px solid var(--gold-line);
+      border-radius:999px;
+      padding:8px 14px;
+      margin-top:8px;
+      color:var(--olive-dark);
+      background:#faf7f0;
+    }
+    .success{margin-top:12px; color:#44613d; font-size:15px; display:none;}
+    .floating{
+      position:fixed;
+      right:14px;
+      bottom:14px;
+      z-index:60;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .floating button,.floating a{
+      width:54px; height:54px; border-radius:50%; border:none; background:var(--olive); color:#fff; display:grid; place-items:center; font-size:22px; text-decoration:none; box-shadow:var(--shadow); cursor:pointer;
+    }
+    @media (max-width:700px){
+      .actions{grid-template-columns:1fr 1fr;}
+      .form-grid{grid-template-columns:1fr;}
+      .card{padding:20px;}
+      .card h2{font-size:28px;}
+      .card p{font-size:18px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <button onclick="openModal('storyModal')">Nossa história</button>
+    <button onclick="openModal('rsvpModal')">RSVP</button>
+    <a class="outline" href="https://maps.google.com/?q=Cowtainer%20BBQ%20Avenida%20Dr.%20Jos%C3%A9%20Amando%20de%20Barros%2C%201611%20Botucatu%20SP" target="_blank" rel="noopener">Como chegar</a>
+    <button class="outline" onclick="copyPix()">Copiar PIX</button>
+  </div>
+
+  <main class="page">
+    <div class="invite-wrap" id="convite">
+      <img src="convite.png" alt="Convite de casamento de Sarah e Jeremias">
+
+      <button class="hotspot open-invite" aria-label="Abrir convite" onclick="scrollToCountdown()"></button>
+      <a class="hotspot map-btn" aria-label="Como chegar" href="https://maps.google.com/?q=Cowtainer%20BBQ%20Avenida%20Dr.%20Jos%C3%A9%20Amando%20de%20Barros%2C%201611%20Botucatu%20SP" target="_blank" rel="noopener"></a>
+      <button class="hotspot rsvp-btn" aria-label="Confirmar presença" onclick="openModal('rsvpModal')"></button>
+      <button class="hotspot story-btn" aria-label="Nossa história" onclick="openModal('storyModal')"></button>
+      <button class="hotspot message-btn" aria-label="Deixe uma mensagem" onclick="openModal('messageModal')"></button>
+    </div>
+
+    <p class="caption">Este site usa o convite exatamente como você aprovou, com ações extras funcionando por clique.</p>
+
+    <div class="actions" id="countdownArea">
+      <button class="primary" onclick="openModal('rsvpModal')">Confirmar presença</button>
+      <button onclick="openModal('storyModal')">Ler nossa história</button>
+      <button onclick="copyPix()">Copiar PIX</button>
+      <a href="https://open.spotify.com/search/A%20Ben%C3%A7%C3%A3o%20Gabriel%20Guedes%20de%20Almeida%20Nivea%20Soares" target="_blank" rel="noopener">Ouvir música</a>
+    </div>
+  </main>
+
+  <div class="floating">
+    <button onclick="openModal('rsvpModal')" title="RSVP">❤</button>
+    <a href="https://maps.google.com/?q=Cowtainer%20BBQ%20Avenida%20Dr.%20Jos%C3%A9%20Amando%20de%20Barros%2C%201611%20Botucatu%20SP" target="_blank" rel="noopener" title="Como chegar">⌖</a>
+    <button onclick="copyPix()" title="Copiar PIX">⧉</button>
+  </div>
+
+  <div id="storyModal" class="modal" onclick="outsideClose(event,'storyModal')">
+    <div class="card">
+      <button class="close" onclick="closeModal('storyModal')">×</button>
+      <h2>Nossa História</h2>
+      <p>Desde o nosso primeiro olhar, sabíamos que havia algo especial entre nós. Entre conversas, risos e momentos simples, o carinho foi crescendo e, aos poucos, se transformou em um amor leve, verdadeiro e cheio de propósito.</p>
+      <p>Caminhamos juntos aprendendo um com o outro, celebrando as alegrias e enfrentando os desafios lado a lado. Em cada etapa, Deus nos abençoou com novas memórias e fortaleceu ainda mais a nossa união.</p>
+      <p>Hoje, com o coração cheio de gratidão, chegamos a este momento tão esperado: o início de um novo capítulo. Queremos celebrar esse dia ao lado das pessoas que fazem parte da nossa história e que, de alguma forma, também torceram pelo nosso amor.</p>
+      <p>Obrigado por estar aqui e por fazer parte dessa jornada. Será uma alegria imensa compartilhar esse sonho com você.</p>
+    </div>
+  </div>
+
+  <div id="rsvpModal" class="modal" onclick="outsideClose(event,'rsvpModal')">
+    <div class="card">
+      <button class="close" onclick="closeModal('rsvpModal')">×</button>
+      <h2>Confirme sua presença</h2>
+      <p>Por favor, confirme sua presença até <strong>20/09/2026</strong>.</p>
+      <div class="form-grid">
+        <div class="full">
+          <label for="nomes">Nome(s) de quem irá</label>
+          <textarea id="nomes" placeholder="Ex: Roberta Vicente e irei junto com Vanessa, Victória e Lara."></textarea>
+        </div>
+        <div>
+          <label for="acompanhantes">Número de acompanhantes</label>
+          <input id="acompanhantes" type="number" min="0" placeholder="0">
+        </div>
+        <div>
+          <label for="restricoes">Restrições alimentares (opcional)</label>
+          <input id="restricoes" type="text" placeholder="Ex: sem glúten">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="cta" onclick="sendRSVP()">Enviar pelo WhatsApp</button>
+      </div>
+      <div class="small-note">O envio abrirá uma mensagem pronta para o WhatsApp.</div>
+    </div>
+  </div>
+
+  <div id="messageModal" class="modal" onclick="outsideClose(event,'messageModal')">
+    <div class="card">
+      <button class="close" onclick="closeModal('messageModal')">×</button>
+      <h2>Deixe uma mensagem</h2>
+      <div class="form-grid">
+        <div>
+          <label for="guestName">Seu nome</label>
+          <input id="guestName" type="text" placeholder="Seu nome">
+        </div>
+        <div class="full">
+          <label for="guestMessage">Sua mensagem</label>
+          <textarea id="guestMessage" placeholder="Escreva aqui seu carinho para os noivos!"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="cta" onclick="sendMessage()">Enviar pelo WhatsApp</button>
+      </div>
+      <div class="small-note">A mensagem será enviada para o WhatsApp dos noivos.</div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id){ document.getElementById(id).classList.add('show'); }
+    function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+    function outsideClose(event,id){ if(event.target.id === id){ closeModal(id); } }
+    function scrollToCountdown(){ document.getElementById('countdownArea').scrollIntoView({behavior:'smooth', block:'center'}); }
+
+    function copyPix(){
+      const pix = '(14) 99614-3026';
+      navigator.clipboard.writeText(pix).then(() => {
+        alert('PIX copiado: ' + pix);
+      }).catch(() => {
+        prompt('Copie o PIX:', pix);
+      });
+    }
+
+    function sendRSVP(){
+      const nomes = document.getElementById('nomes').value.trim();
+      const acompanhantes = document.getElementById('acompanhantes').value.trim();
+      const restricoes = document.getElementById('restricoes').value.trim();
+      if(!nomes){
+        alert('Por favor, informe o(s) nome(s) de quem irá.');
+        return;
+      }
+      const texto = `Olá! Estou confirmando presença no casamento de Sarah e Jeremias.%0A%0ANomes: ${encodeURIComponent(nomes)}%0ANúmero de acompanhantes: ${encodeURIComponent(acompanhantes || '0')}%0ARestrições alimentares: ${encodeURIComponent(restricoes || 'Nenhuma')}`;
+      window.open('https://wa.me/5514996143026?text=' + texto, '_blank');
+    }
+
+    function sendMessage(){
+      const nome = document.getElementById('guestName').value.trim();
+      const mensagem = document.getElementById('guestMessage').value.trim();
+      if(!nome || !mensagem){
+        alert('Preencha seu nome e sua mensagem.');
+        return;
+      }
+      const texto = `Mensagem para Sarah e Jeremias:%0A%0ADe: ${encodeURIComponent(nome)}%0A${encodeURIComponent(mensagem)}`;
+      window.open('https://wa.me/5514996143026?text=' + texto, '_blank');
+    }
+  </script>
+</body>
+</html>
